@@ -3,15 +3,17 @@
 
 This is a small localization library for [Chaplin](https://github.com/chaplinjs/chaplin). As soon as I am finished with it I'll try to propose it as a pull request since it might be useful in general.
 
+*Todos*
+* Currently there is no way to actually set the language within your application. This is pretty bad and I really need to fix it since it is the main feature. But ...
+
 *Attention:*
-* This is still work in progress ;)
-* chaplin-i18n only works when you are using Handlebars as your templating engine
+* This is still work in progress ;) Any contributions appreciated ...
 
 ## Configuration
 
 ### Requirements
 
-Since it has not been included directly into Chaplin yet you need to clone this repository, compile it and save the file to you `js/lib` folder like the `utils.js` coming with Chaplin assuming you are using the [Chaplin-Boilerplate](https://github.com/chaplinjs/chaplin-boilerplate). Well this is pretty much it.
+Since it has not been included directly into Chaplin yet you need to clone this repository, compile it and save the file to you `js/lib` folder like the `utils.js` coming with Chaplin assuming you are using the [Chaplin-Boilerplate](https://github.com/chaplinjs/chaplin-boilerplate). This is important because in the `views/base/view.coffee` file you need to register a Handlebars Helper to use i18n in your Handlebars template. *chaplin-i18n* does not depend on Handlebars, just write your own wrappers to use the i18n lib with ECO or other template engines.
 
 To get the localization to work, just require the library in your application file and call the `init()` method.
 
