@@ -4,6 +4,7 @@
 This is a small localization library for [Chaplin](https://github.com/chaplinjs/chaplin). As soon as I am finished with it I'll try to propose it as a pull request since it might be useful in general.
 
 *Todos*
+* Tests
 * Currently there is no way to actually set the language within your application. This is pretty bad and I really need to fix it since it is the main feature. But ...
 
 *Attention:*
