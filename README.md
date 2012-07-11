@@ -5,6 +5,8 @@ This is a small localization library for [Chaplin](https://github.com/chaplinjs/
 
 *Todos*
 * Tests
+* Use real PO files for translation instead of JSON -> is this really necessary?
+* add more lingual helpers such as pluralize or singularize
 * Currently there is no way to actually set the language within your application. This is pretty bad and I really need to fix it since it is the main feature. But ...
 
 *Attention:*
@@ -52,9 +54,9 @@ I haven't been able to test all this using large localization files. I am a bit 
 
 ### Localizations
 
-Furthermore you obviously need some localizations. You'll be able to support as many langugaes as you want. Just create a `js/locale` folder where you put your language files. This files will be saved as JSON and are called like this `en.json` or `de.json`.
+Furthermore you obviously need some localizations. You'll be able to support as many languages as you want. Just create a `js/locale` folder where you put your language files. This files will be saved as JSON and are called like this `en.json` or `de.json`.
 
-The JSON langauge should be somehow similar to this snippet - you can find an example in this repo.
+The JSON language should be somehow similar to this snippet - you can find an example in this repo.
 
 ````
 {
