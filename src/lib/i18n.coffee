@@ -1,6 +1,7 @@
 define [
   'underscore'
-], (_) ->
+  'chaplin'
+], (_, Chaplin) ->
   'use strict'
 
 
