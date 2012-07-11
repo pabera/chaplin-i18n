@@ -1,7 +1,7 @@
  chaplin-i18n - Localization for Chaplin
 ========================================
 
-This is a small localization library for [Chaplin](https://github.com/chaplinjs/chaplin). As soon as I am finished with it I'll try to propose it as a pull request since it might be useful in general.
+This is a small localization library for [Chaplin](https://github.com/chaplinjs/chaplin).
 
 *Todos*
 * Tests
