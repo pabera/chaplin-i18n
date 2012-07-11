@@ -16,7 +16,7 @@ This is a small localization library for [Chaplin](https://github.com/chaplinjs/
 
 ### Requirements
 
-Since it has not been included directly into Chaplin yet you need to clone this repository, compile it and save the file to you `js/lib` folder like the `utils.js` coming with Chaplin assuming you are using the [Chaplin-Boilerplate](https://github.com/chaplinjs/chaplin-boilerplate). This is important because in the `views/base/view.coffee` file you need to register a Handlebars Helper to use i18n in your Handlebars template. *chaplin-i18n* does not depend on Handlebars, just write your own wrappers to use the i18n lib with ECO or other template engines.
+Since this is just a plugin for Chaplin you need to clone this repository, compile it and save the file to you `js/lib` folder like the `utils.js` coming with Chaplin assuming you are using the [Chaplin-Boilerplate](https://github.com/chaplinjs/chaplin-boilerplate). This is important because, in the `views/base/view.coffee` file you need to register a Handlebars Helper to use i18n in your Handlebars template. *chaplin-i18n* does not depend on Handlebars, just write your own wrappers to use the i18n lib with ECO or other template engines.
 
 To get the localization to work, just require the library in your application file and call the `init()` method.
 
@@ -73,7 +73,7 @@ The JSON language should be somehow similar to this snippet - you can find an ex
 
 It is important to understand that you don't need any localization file for your default language since you directly use the strings in your Handlebars Templates.
 
-To use I18n, please wrap your string to be translated like this (Attention: I am using HAML templates here!)
+To use I18n, please wrap your string to be translated like this (I am using HAML templates here!)
 
 ````
 %h1 {{ t "Hello World" }}
