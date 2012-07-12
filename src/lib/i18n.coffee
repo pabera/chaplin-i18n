@@ -46,7 +46,7 @@ define [
       template = @localization[@__locale]?[id] or @localization[@__locale[0..1]]?[id]
       unless template?
         # You don't need to provide a localization for the default language
-        template = if @__locale != 'en' then "(?) #{id}" else "#{id}"
+        template = if @__locale != @defaultLocale then "(?) #{id}" else "#{id}"
         # uncomment the following line to show all missing translations in the console
         # console.log("missing [#{@__locale}] #{id}") if console?.log?
       
