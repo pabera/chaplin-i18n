@@ -27,12 +27,16 @@ define [
       # load language dynamically if other then default locale
       if @__locale != @defaultLocale
         require ["text!locale/#{@__locale}.json"], (localization) =>
-          @localization = JSON.parse(localization)
+          @setLocalization(localization)
 
 
     setDefault: (locale) ->
       @defaultLocale = @__locale = locale
 
+    # Sets an localization object to i18n object
+    setLocalization: (localization) ->
+      @localization = JSON.parse(localization)
+      
 
     # Look trough the localization and get the right translation if there is any
     # When there is no translation, it will return the original string with a prepend (?)
