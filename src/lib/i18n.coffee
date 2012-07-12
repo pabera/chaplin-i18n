@@ -14,10 +14,10 @@ define [
 
   # Implement the i18n object
   i18n =
-    localization : {}       # Save the .json localization file
-    __locale : null         # language set
-    defaultLocale : 'en'    # default language of the application that does not need a localization file
-
+    localization : {}         # Save the .json localization file
+    __locale : null           # language set
+    defaultLocale : 'en'      # default language of the application that does not need a localization file
+    pathToLocale : 'locale'   # path to localization files
 
     # Init your localization, call this method in your application when you want to use i18n
     init: () ->
@@ -25,18 +25,19 @@ define [
       @__locale = @defaultLocale unless @__locale?
 
       # load language dynamically if other then default locale
-      if @__locale != @defaultLocale
-        require ["text!locale/#{@__locale}.json"], (localization) =>
+      if @__locale isnt @defaultLocale
+        require ["text!#{@pathToLocale}/#{@__locale}.json"], (localization) =>
           @setLocalization(localization)
 
 
     setDefault: (locale) ->
       @defaultLocale = @__locale = locale
 
+
     # Sets an localization object to i18n object
     setLocalization: (localization) ->
       @localization = JSON.parse(localization)
-      
+
 
     # Look trough the localization and get the right translation if there is any
     # When there is no translation, it will return the original string with a prepend (?)
