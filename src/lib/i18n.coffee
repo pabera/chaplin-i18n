@@ -63,18 +63,17 @@ define [
     # "Ich bin 25 Jahre alt!"
 
     t: (i18n_key) ->
-      args = Array.prototype.slice.call(arguments, 0)
-
       # Find the translation
       result = i18n.translate i18n_key
 
       # clear arguments to array and remove first and last item
       # check wether the arguments come in an array or as plain method arguments
       # depends on how you call this function
+      args = Array.prototype.slice.call(arguments, 0)
       if _.isArray(args[1]) then _args = args[1] else _args = args
+      if !_.isString _args[_args.length-1] then _args.pop() 
 
-      _args.shift()
-      _args.pop()
+      _args.shift() # the original string needs to be shifted anyway
 
       # Replace placeholders in the localization string with given variables
       result.fillWith _args
