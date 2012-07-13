@@ -6,7 +6,7 @@ define [
 
 
   # Register a format method to the String.prototype
-  String.prototype.format = (strings) ->
+  String.prototype.augmentedWith = (strings) ->
     args = strings
     @replace /{(\d+)}/g, (match, number) ->
       if typeof args[number] != 'undefined' then args[number] else match
@@ -77,7 +77,7 @@ define [
       _args.pop()
 
       # Replace placeholders in the localization string with given variables
-      result.format _args
+      result.augmentedWith _args
 
 
   # Seal the i18n object
