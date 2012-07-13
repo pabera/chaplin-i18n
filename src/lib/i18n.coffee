@@ -46,7 +46,7 @@ define [
       template = @localization[@__locale]?[id] or @localization[@__locale[0..1]]?[id]
       unless template?
         # You don't need to provide a localization for the default language
-        template = if @__locale != @defaultLocale then "(?) #{id}" else "#{id}"
+        template = if @__locale isnt @defaultLocale then "(?) #{id}" else "#{id}"
         # uncomment the following line to show all missing translations in the console
         # console.log("missing [#{@__locale}] #{id}") if console?.log?
       
@@ -63,17 +63,21 @@ define [
     # "Ich bin 25 Jahre alt!"
 
     t: (i18n_key) ->
+      args = Array.prototype.slice.call(arguments, 0)
+
       # Find the translation
       result = i18n.translate i18n_key
 
       # clear arguments to array and remove first and last item
-      args = []
-      for arg in arguments
-        if _i > 0 and _i < arguments.length-1
-          args.push arg
+      # check wether the arguments come in an array or as plain method arguments
+      # depends on how you call this function
+      if _.isArray(args[1]) then _args = args[1] else _args = args
+
+      _args.shift()
+      _args.pop()
 
       # Replace placeholders in the localization string with given variables
-      result.format args
+      result.format _args
 
 
   # Seal the i18n object
