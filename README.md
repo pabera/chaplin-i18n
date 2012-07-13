@@ -4,7 +4,6 @@
 This is a small localization library for [Chaplin](https://github.com/chaplinjs/chaplin).
 
 *Todos*
-* Tests
 * Use real PO files for translation instead of JSON -> is this really necessary?
 * add more lingual helpers such as pluralize or singularize
 * Currently there is no way to actually set the language within your application. This is pretty bad and I really need to fix it since it is the main feature. But ...
