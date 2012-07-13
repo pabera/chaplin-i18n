@@ -31,7 +31,8 @@ define [
 
       # Register Handlebars Helper to use i18n in Templates
       Handlebars.registerHelper 't', (i18n_key) ->
-        result = i18n.t i18n_key
+        args = Array.prototype.slice.call(arguments, 0)
+        result = i18n.t i18n_key, args
         # some further escaping
         result = Handlebars.Utils.escapeExpression result
         new Handlebars.SafeString result
