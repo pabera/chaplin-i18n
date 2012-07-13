@@ -5,8 +5,8 @@ define [
   'use strict'
 
 
-  # Register a format method to the String.prototype
-  String.prototype.augmentedWith = (strings) ->
+  # Register a insertion method to the String.prototype
+  String.prototype.fillWith = (strings) ->
     args = strings
     @replace /{(\d+)}/g, (match, number) ->
       if typeof args[number] != 'undefined' then args[number] else match
@@ -77,7 +77,7 @@ define [
       _args.pop()
 
       # Replace placeholders in the localization string with given variables
-      result.augmentedWith _args
+      result.fillWith _args
 
 
   # Seal the i18n object
