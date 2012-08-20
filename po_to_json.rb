@@ -28,8 +28,7 @@ def parse_translation(content)
 end
 
 def convert_to_json(lang, translations)
-  json = {}
-  json[lang] = {}
+  json = { lang => {} }
   translations.each { |key,value| json[lang][key] = value }
   json.to_json
 end

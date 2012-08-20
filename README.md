@@ -3,10 +3,23 @@
 
 This is a small localization library for [Chaplin](https://github.com/chaplinjs/chaplin).
 
+***Stuff, the plugin can do today.***
+
+handlebars helper method
+* use a real [basic translation method](#usage-in-handlebars-templates) to handle your localization
+
+basic gettext support
+* Create POT files from your given source
+* export translates PO files to a JSON format which the chaplin-i18n plugin understands
+* make this independent from chaplin (and handlebars)
+
+
 *Todos*
-* Use real PO files for translation instead of JSON -> is this really necessary?
+* read MO files?!
+* use [BCP 47 language tags](http://www.rfc-editor.org/bcp/bcp47.txt)
 * add more lingual helpers such as pluralize or singularize
 * Currently there is no way to actually set the language within your application. This is pretty bad and I really need to fix it since it is the main feature. But ...
+* implenting new [ECMAScript Internationalization API](http://wiki.ecmascript.org/doku.php?id=globalization:specification_drafts)
 
 *Attention:*
 * This is still work in progress ;) Any contributions appreciated ...
@@ -53,7 +66,10 @@ I haven't been able to test all this using large localization files. I am a bit 
 
 ### Localizations
 
-Furthermore you obviously need some localizations. You'll be able to support as many languages as you want. Just create a `js/locale` folder where you put your language files. This files will be saved as JSON and are called like this `en.json` or `de.json`.
+Furthermore you obviously need some localizations. You'll be able to support as many languages as you want. There are two possibilites to create your locales.
+
+1. Just create a `js/locale` folder where you put your language files. This files will be saved as JSON and are called like this `en.json` or `de.json`. 
+2. [Use the implemented parsers to create PO compatiple POT translation templates and PO to JSON parsers](#parsers)
 
 The JSON language should be somehow similar to this snippet - you can find an example in this repo.
 
@@ -80,3 +96,20 @@ To use I18n, please wrap your string to be translated like this (I am using HAML
 ````
 
 The `t` method is a Handlebars-Helper registered by the the library. Then it is able to 'translate' simple strings but also complete sentences where you need to inject even more variables. Just append the corresponding arguments to the method call after the string and the library will inject the arguments correctly.
+
+### Language string parsers
+
+#### Template files to POT
+*Currently, this only works for handlebars templates that use chaplin-i18n implementation. I will try to solve that.*
+
+`ruby gettext.rb --src path/to/your/sources --dst path/to/your/destinations`
+
+If you use [Chaplin-Boilerplate](https://github.com/chaplinjs/chaplin-boilerplate) and [chaplin-generators](https://github.com/pabera/chaplin-generators), that you don't need tp pass any arguments since some default values have been set.
+
+Now you get an POT output in your `./locales/` folder. Use this file to do your translations and put the PO (no MO support right now) in the same folder.
+
+#### PO to chaplin-i18n JSON files
+
+`ruby po_to_json.rb --src path/to/your/sources --dst path/to/your/destinations`
+
+No arguments needed if you use the chaplin-generators. You now have a JSON translation output that chaplin-i18n understands.
