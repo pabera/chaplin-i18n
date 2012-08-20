@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 # encoding: utf-8
 
+require "json"
+
 src_dir = "locale/*.po"
 $dst_dir = "src/js/locale"
 
@@ -25,12 +27,10 @@ def parse_translation(content)
 end
 
 def convert_to_json(lang, translations)
-  json  = "{\"#{lang}\":{"
-  json += translations.map{ |pair| 
-    "\"" + pair * "\":\"" + "\""
-  } * ","
-  json += "}}"
-  json
+  json = {}
+  json[lang] = {}
+  translations.each { |key,value| json[lang][key] = value }
+  json.to_json
 end
 
 def save_po_json_file(lang, json)
@@ -40,7 +40,6 @@ def save_po_json_file(lang, json)
   output = File.new($dst_dir +"/"+ lang+".json", "w+")
   output << json
   output.close
-
 end
 
 # Do the real stuff, parse arguments if necessary, read the src and save the pot file
