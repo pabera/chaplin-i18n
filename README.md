@@ -69,7 +69,7 @@ I haven't been able to test all this using large localization files. I am a bit 
 Furthermore you obviously need some localizations. You'll be able to support as many languages as you want. There are two possibilites to create your locales.
 
 1. Just create a `js/locale` folder where you put your language files. This files will be saved as JSON and are called like this `en.json` or `de.json`. 
-2. [Use the implemented parsers to create PO compatiple POT translation templates and PO to JSON parsers](#parsers)
+2. [Use the implemented parsers to create PO compatiple POT translation templates and PO to JSON parsers](#language-string-parsers)
 
 The JSON language should be somehow similar to this snippet - you can find an example in this repo.
 
