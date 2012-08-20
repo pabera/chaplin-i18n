@@ -15,8 +15,9 @@ end
 # read a single file
 def read_file(file)
   file = File.open(file, "r:iso-8859-1:utf-8")
+  lang = File.basename(file, '.po')
+  
   content = file.read
-  lang = "de"
   translations = parse_translation(content)
   json = convert_to_json(lang, translations)
   save_po_json_file(lang, json)
