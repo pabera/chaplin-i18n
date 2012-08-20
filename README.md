@@ -3,7 +3,7 @@
 
 This is a small localization library for [Chaplin](https://github.com/chaplinjs/chaplin).
 
-***Stuff, the plugin can do today.***
+***Stuff, we can do today
 
 handlebars helper method
 * use a real [basic translation method](#usage-in-handlebars-templates) to handle your localization
