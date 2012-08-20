@@ -3,22 +3,21 @@
 
 This is a small localization library for [Chaplin](https://github.com/chaplinjs/chaplin).
 
-***Stuff, we can do today
+### Stuff, we can do today
 
 handlebars helper method
 * use a real [basic translation method](#usage-in-handlebars-templates) to handle your localization
 
 basic gettext support
 * Create POT files from your given source
-* export translates PO files to a JSON format which the chaplin-i18n plugin understands
-* make this independent from chaplin (and handlebars)
-
+* export translated PO files to a JSON format which the chaplin-i18n plugin understands
 
 *Todos*
 * read MO files?!
 * use [BCP 47 language tags](http://www.rfc-editor.org/bcp/bcp47.txt)
 * add more lingual helpers such as pluralize or singularize
 * Currently there is no way to actually set the language within your application. This is pretty bad and I really need to fix it since it is the main feature. But ...
+* make this independent from chaplin (and handlebars)
 * implenting new [ECMAScript Internationalization API](http://wiki.ecmascript.org/doku.php?id=globalization:specification_drafts)
 
 *Attention:*
