@@ -1,0 +1,8 @@
+paths:
+  to_pot:
+    src: src/coffee/templates/**/*.haml
+    dst: locale/application.pot
+  to_po:
+  to_json:
+    src: locale/*.po
+    dst: src/js/locale

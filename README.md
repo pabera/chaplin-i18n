@@ -16,9 +16,9 @@ basic gettext support
 * read MO files?!
 * use [BCP 47 language tags](http://www.rfc-editor.org/bcp/bcp47.txt)
 * add more lingual helpers such as pluralize or singularize
-* Currently there is no way to actually set the language within your application. This is pretty bad and I really need to fix it since it is the main feature. But ...
-* make this independent from chaplin (and handlebars)
-* implenting new [ECMAScript Internationalization API](http://wiki.ecmascript.org/doku.php?id=globalization:specification_drafts)
+* Currently there is no way to set the language within your application. This is pretty unusable and I really need to fix it since it is the main feature.
+* make this plugin more independent from chaplin (and handlebars templating engine)
+* implementing new [ECMAScript Internationalization API](http://wiki.ecmascript.org/doku.php?id=globalization:specification_drafts)
 
 *Attention:*
 * This is still work in progress ;) Any contributions appreciated ...
@@ -98,17 +98,15 @@ The `t` method is a Handlebars-Helper registered by the the library. Then it is 
 
 ### Language string parsers
 
+Set your configuration in the `bin/config.yml`
+
 #### Template files to POT
 *Currently, this only works for handlebars templates that use chaplin-i18n implementation. I will try to solve that.*
 
-`ruby gettext.rb --src path/to/your/sources --dst path/to/your/destinations`
+`ruby intl.rb [read]`
 
-If you use [Chaplin-Boilerplate](https://github.com/chaplinjs/chaplin-boilerplate) and [chaplin-generators](https://github.com/pabera/chaplin-generators), that you don't need tp pass any arguments since some default values have been set.
-
-Now you get an POT output in your `./locales/` folder. Use this file to do your translations and put the PO (no MO support right now) in the same folder.
+Now you get a POT output in your `./locales/` folder. Use this file to do your translations and put the PO (no MO support right now) in the same folder.
 
 #### PO to chaplin-i18n JSON files
 
-`ruby po_to_json.rb --src path/to/your/sources --dst path/to/your/destinations`
-
-No arguments needed if you use the chaplin-generators. You now have a JSON translation output that chaplin-i18n understands.
+`ruby intl.rb write`
