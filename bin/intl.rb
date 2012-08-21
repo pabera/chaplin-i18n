@@ -76,9 +76,7 @@ class Internationalization
   end
 
   def set_config(root, type, value)
-    puts root, type, value
     @config['paths'][root][type] = value
-    puts @config['paths'][root][type]
   end
 
   private
@@ -115,12 +113,12 @@ end
 # Decide wether you want to parse templates (read) or create json (write)
 intl = Internationalization.new
 
-puts ARGV.to_s
-
 if ARGV[0] == "read" || !ARGV[0]
   puts 'Read templates and create POT file'
 
   # Use with caution: you can pass your src and dst as parameters too
+  # if you use wildcards, please use it arguments like this: 
+  # $ ruby intl.rb read "src/**/*.haml" "dst/locale"
   # Currently no exception handling though
   if ARGV[1] && ARGV[2]
     intl.set_config('to_pot', 'src', ARGV[1])
@@ -132,6 +130,8 @@ elsif ARGV[0] == "write"
   puts 'Transform all PO to JSON files'
   
   # Use with caution: you can pass your src and dst as parameters too
+  # if you use wildcards, please use it arguments like this: 
+  # $ ruby intl.rb read "src/**/*.haml" "dst/locale"
   # Currently no exception handling though
   if ARGV[1] && ARGV[2]
     intl.set_config('to_json', 'src', ARGV[1])
